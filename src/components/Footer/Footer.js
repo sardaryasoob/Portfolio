@@ -25,25 +25,19 @@ const Footer = () => {
       <LinkList>
         <LinkColumn>
           <LinkTitle>Call:</LinkTitle>
-          <LinkItem href="+92 349 4771617">+92 349 4771617</LinkItem>
+          <LinkItem href="tel:+923180476560">0318-0476560</LinkItem>
         </LinkColumn>
         <LinkColumn>
           <LinkTitle>Email:</LinkTitle>
-          <LinkItem href="afaqshahidk@gmail.com">afaqshahidk@gmail.com</LinkItem>
+          <LinkItem href="mailto:sardaryasoob88@gmail.com">sardaryasoob88@gmail.com</LinkItem>
         </LinkColumn>
         <SocialIconsContainer>
           <CompanyContainer>
-            <Slogan>Inovating one project at a time</Slogan>
+            <Slogan>Driving innovative solutions, one project at a time</Slogan>
           </CompanyContainer>
           <SocialContainer>
-            <SocialIcons href="https://github.com/AfaqShahidKhan" target="_blank">
-              <AiFillGithub size="3rem" />
-            </SocialIcons>
-            <SocialIcons href="https://www.linkedin.com/in/afaq-shahid-khan" target="_blank">
+            <SocialIcons href="https://www.linkedin.com/in/sardar-yasoob/" target="_blank">
               <AiFillLinkedin size="3rem" />
-            </SocialIcons>
-            <SocialIcons href="https://twitter.com/afaqshahidkhan" target="_blank">
-              <FaSquareXTwitter size="3rem" />
             </SocialIcons>
           </SocialContainer>
         </SocialIconsContainer>

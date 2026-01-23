@@ -1,51 +1,50 @@
 export const projects = [
   {
-    title: "Bookarley",
+    title: "Enterprise Web Application",
     description:
-      "A  beacon of innovation in the world of wedding planning that embrace the future of wedding planning",
+      "A complex enterprise application built with Angular, Material UI, and Kendo UI. Implemented NGRX Store for state management and RxJS for handling asynchronous data streams, ensuring scalable architecture and optimal performance.",
     image: "/images/1.png",
-    tags: ["Rails", "Postgresql","Solidus"],
-    source: "https://github.com/AfaqShahidKhan?tab=repositories",
-    visit: "https://bookarley.com/",
+    tags: ["Angular", "NGRX", "RxJS", "Material UI", "Kendo UI"],
+    source: "#",
+    visit: "#",
     id: 0,
   },
   {
-    title: "News-Web-in-Next.js",
+    title: "Responsive Web Platform",
     description:
-      "This is the online news app. I use Next.js for making this website. I have also use API integereation in it. ",
+      "A modern web platform developed using Angular and React, featuring intuitive user interfaces and seamless user experience. Focused on code stability and meeting client requirements with scalable solutions.",
     image: "/images/2.png",
-    tags: ["React", "JavaScript", "Next"],
-    source: "https://github.com/AfaqShahidKhan/live_nextt_news_app",
-    visit: "https://live-nextt-news-8qdm9mq50-v3english123-gmailcom.vercel.app/feed/1",
+    tags: ["Angular", "React", "JavaScript", "HTML5", "CSS"],
+    source: "#",
+    visit: "#",
     id: 1,
   },
   {
-    title: "Munshi On Click",
+    title: "Full-Stack Application",
     description:
-      "Munshionclick ERP goes beyond traditional ERP systems, providing a user-friendly interface and robust features that empower your organization to thrive in the ever-evolving business landscape.",
+      "A comprehensive full-stack application leveraging Python backend and modern frontend technologies. Built with focus on performance optimization and user experience enhancement.",
     image: "/images/3.png",
-    tags: ["Rails", "Postgresql"],
-    source: "https://github.com/AfaqShahidKhan?tab=repositories",
-    visit: "https://munshionclick.com/",
+    tags: ["Python", "Angular", "JavaScript", "HTML5", "CSS"],
+    source: "#",
+    visit: "#",
     id: 2,
   },
   {
-    title: "Your Guide",
+    title: "Interactive Web Solution",
     description:
-      "An application for the tourists help. I have designed it in Flutter for Connecting local communities with travelers, we provide both tried-and-true and out-of-the-ordinary methods for spending your weekends and vacations. ",
+      "An innovative web solution featuring responsive design and modern UI/UX principles. Utilized Material UI components to create intuitive interfaces while maintaining high functionality.",
     image: "/images/4.png",
-    tags: ["Flutter", "GetX"],
-    source: "https://github.com/AfaqShahidKhan/Your-Guide",
-    visit: "https://github.com/AfaqShahidKhan?tab=repositories",
+    tags: ["Angular", "Material UI", "TypeScript", "RxJS"],
+    source: "#",
+    visit: "#",
     id: 3,
   },
 ];
 
 export const TimeLineData = [
   {
-    year: 2020, text: "Started my journey in JAVA for desktop apps",
+    year: 2019, text: "Started 3 years of freelancing experience",
   },
-  { year: 2021, text: "Worked on Flutter for Android and IOS" },
-  { year: 2022, text: "worked with Ruby on Rails and PostgreSQL" },
-  { year: 2023, text: "Since 2023, I've been working on React and NEXT.js " },
+  { year: 2022, text: "Working experience with Enblem Technologies" },
+  { year: 2024, text: "2.5 years of working experience with IQC Solutions till present" },
 ];

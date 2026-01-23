@@ -35,7 +35,7 @@ const Header = () => {
             }}
           >
             <DiCssdeck size="3rem" />
-            <Span>Portfolio</Span>
+            <Span>Sardar Yasoob</Span>
           </a>
         </Link>
       </Div1>
@@ -74,14 +74,8 @@ const Header = () => {
         </li> */}
       </Div2>
       <Div3>
-        <SocialIcons href="https://github.com/AfaqShahidKhan" target="_blank">
-          <AiFillGithub size="3rem" />
-        </SocialIcons>
-        <SocialIcons href="https://www.linkedin.com/in/afaq-shahid-khan" target="_blank">
+        <SocialIcons href="https://www.linkedin.com/in/sardar-yasoob/" target="_blank">
           <AiFillLinkedin size="3rem" />
-        </SocialIcons>
-        <SocialIcons href="https://twitter.com/afaqshahidkhan" target="_blank">
-          <FaSquareXTwitter size="3rem" />
         </SocialIcons>
       </Div3>
     </Container>

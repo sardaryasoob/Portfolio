@@ -12,18 +12,18 @@ const Hero = () => (
   <Section row nopadding>
     <LeftSection>
       <SectionTitle main center>
-        Hi! I'm Afaq Shahid Khan
+        Hi! I'm Sardar Yasoob
         <br />
-    
+        Software Engineer
       </SectionTitle>
       <SectionText>
-      Having Experties in JavaScript, React.js, Next.js, TypeScript, WebSocket,
+      Having Experties in Angular, JavaScript, React.js, Next.js, TypeScript, WebSocket,
       JSON, Postman, jQuery, AJAX, Node, Express, MongoDB RESTful APIs, Debugging, GIT,
       HTML, CSS,Wordpress, Bootstrap, Material UI, Tailwind CSS and Semantic UI.
       </SectionText>
       <Button
         onClick={() => {
-          window.open("https://www.linkedin.com/in/afaq-shahid-khan", "_blank");
+          window.open("https://www.linkedin.com/in/sardar-yasoob/", "_blank");
         }}
       >
         Learn more

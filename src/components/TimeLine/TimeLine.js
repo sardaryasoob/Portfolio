@@ -69,8 +69,12 @@ const Timeline = () => {
       <br />
       <SectionTitle>About Me</SectionTitle>
       <SectionText>
-        I'm passionate about accessibility, performance, and elegant design and
-        things that usually make life easier for the users.
+        As a Software Engineer, I've contributed to multi-team projects, driving innovative solutions and
+        ensuring smooth delivery. My technical expertise, especially in Angular and full-stack development,
+        allows me to tackle complex challenges with clean, efficient code. From building user-friendly web
+        applications to optimizing functionality, I focus on creating impactful solutions that enhance both
+        performance and user experience. Passionate about coding, I'm always ready to dive into new projects
+        and deliver exceptional results!
       </SectionText>
       <CarouselContainer ref={carouselRef} onScroll={handleScroll}>
         <>
