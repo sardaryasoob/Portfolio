@@ -1,4 +1,24 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const fadeInUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const float = keyframes`
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+`;
 
 export const ImageContainer = styled.div`
   text-align: center;
@@ -30,9 +50,10 @@ export const MainImage = styled.img`
 export const List = styled.ul`
   list-style-type: none;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 40px;
   margin: 3rem 0;
+  animation: ${fadeInUp} 0.8s ease-out;
   
   @media ${props => props.theme.breakpoints.lg}{
     margin: 64px 0;
@@ -65,8 +86,12 @@ export const ListTitle = styled.h4`
   font-size: 28px;
   line-height: 32px;
   letter-spacing: 0.02em;
-  color: #FFFFFF;
+  background: ${props => props.theme.colors.gradient1};
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 8px;
+  transition: all 0.3s ease;
 
 @media ${props => props.theme.breakpoints.md}{
   font-size: 24px;
@@ -84,7 +109,8 @@ export const ListTitle = styled.h4`
 export const ListParagraph = styled.p`
   font-size: 18px;
   line-height: 30px;
-  color: rgba(255, 255, 255, 0.75);
+  color: ${props => props.theme.colors.textSecondary};
+  transition: color 0.3s ease;
 
   @media ${props => props.theme.breakpoints.md}{
     font-size: 16px;
@@ -97,10 +123,56 @@ export const ListParagraph = styled.p`
   }
 `
 
-export const ListItem = styled.li`
+export const ListItem = styled.li.attrs(props => ({
+  style: {
+    animationDelay: `${(props.index || 0) * 0.1}s`
+  }
+}))`
   max-width: 320px;
   display: flex;
   flex-direction: column;
+  padding: 2rem;
+  border-radius: 15px;
+  background: ${props => props.theme.colors.background2};
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  animation: ${fadeInUp} 0.6s ease-out both;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: ${props => props.theme.colors.gradient1};
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  svg {
+    color: ${props => props.theme.colors.accent1};
+    transition: all 0.3s ease;
+    animation: ${float} 3s ease-in-out infinite;
+    animation-delay: ${props => (props.index || 0) * 0.2}s;
+  }
+  
+  &:hover {
+    transform: translateY(-5px);
+    border-color: ${props => props.theme.colors.accent1};
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    
+    &::before {
+      transform: scaleX(1);
+    }
+    
+    svg {
+      transform: scale(1.2);
+      color: ${props => props.theme.colors.gradient1};
+    }
+  }
 
 @media ${props => props.theme.breakpoints.md}{
   max-width: 203px;

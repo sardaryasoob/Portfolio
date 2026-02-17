@@ -1,14 +1,37 @@
 
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const fadeInUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const slideIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
 
 export const CarouselContainer = styled.ul`
   max-width: 1040px;
-  background: #0F1624;
+  background: ${props => props.theme.colors.background1};
   padding: 0rem;
   list-style:none;
   display: flex;
   justify-content: space-between; 
   /* overflow-x: hidden; */
+  animation: ${fadeInUp} 0.8s ease-out;
 
   margin-left: 32px;
   &:first-of-type{
@@ -39,10 +62,25 @@ export const CarouselMobileScrollNode = styled.div`
   }
 `
 
-export const CarouselItem = styled.div`
-  background: #0F1624;
-  border-radius: 3px;
+export const CarouselItem = styled.div.attrs(props => ({
+  style: {
+    animationDelay: `${(props.index || 0) * 0.1}s`
+  }
+}))`
+  background: ${props => props.theme.colors.background1};
+  border-radius: 8px;
   max-width: 196px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  animation: ${slideIn} 0.6s ease-out both;
+  
+  &:hover {
+    background: ${props => props.theme.colors.background2};
+    border-color: ${props => props.theme.colors.accent1};
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
 
   @media ${props => props.theme.breakpoints.md} {
     max-width: 124px;
@@ -51,7 +89,7 @@ export const CarouselItem = styled.div`
   @media ${props => props.theme.breakpoints.sm} {
     margin-left: 32px;
     min-width: 120px;
-    background: #0E131F;
+    background: ${props => props.theme.colors.background2};
     padding: 4px;
     align-content: start;
     scroll-snap-align: start;
@@ -71,10 +109,12 @@ export const CarouselItemTitle = styled.h4`
   letter-spacing: 0.02em;
   display: flex;
   /* This gradient is different due to the size of the Title container, it must transition sooner to be visible on the text */
-  background: linear-gradient(121.57deg, #FFFFFF 10%, rgba(255, 255, 255, 0.66) 30.15%);
+  background: ${props => props.theme.colors.gradient1};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 8px;
+  transition: all 0.3s ease;
 
   @media ${props => props.theme.breakpoints.md} {
     font-size: 20px;
@@ -103,8 +143,9 @@ export const CarouselItemText = styled.p`
   font-size: 14px;
   line-height: 22px;
   letter-spacing: 0.02em;
-  color: rgba(255, 255, 255, 0.75);
+  color: ${props => props.theme.colors.textSecondary};
   padding-right: 16px;
+  transition: color 0.3s ease;
 
   @media ${props => props.theme.breakpoints.md} {
     font-size: 12px;
@@ -146,9 +187,10 @@ export const CarouselButton = styled.button`
 `
 
 export const CarouselButtonDot = styled.div`
-  background-color: white;
+  background: ${props => props.theme.colors.gradient1};
   border-radius: 10px;
   margin: auto;
   width: 3px;
   height: 3px;
+  transition: all 0.3s ease;
 `

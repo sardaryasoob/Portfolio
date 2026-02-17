@@ -3,15 +3,16 @@ import React from "react";
 import {
   BlogCard,
   CardInfo,
-  ExternalLinks,
   GridContainer,
   HeaderThree,
   Hr,
   Tag,
   TagList,
   TitleContent,
-  UtilityList,
   Img,
+  ImgContainer,
+  ProjectNumber,
+  CardOverlay,
 } from "./ProjectsStyles";
 import {
   Section,
@@ -23,12 +24,16 @@ import { myProjects, projects } from "../../constants/constants";
 const Projects = () => (
   <Section nopadding id="projects">
     <SectionDivider />
-    <SectionTitle main>Projects</SectionTitle>
+    <SectionTitle main>Featured Projects</SectionTitle>
     <GridContainer>
       {projects.map((p, i) => {
         return (
-          <BlogCard key={i}>
-            <Img src={p.image} />
+          <BlogCard key={i} index={i} color={p.color}>
+            <ProjectNumber color={p.color}>0{i + 1}</ProjectNumber>
+            <ImgContainer>
+              <Img src={p.image} alt={p.title} />
+              <CardOverlay color={p.color} />
+            </ImgContainer>
             <TitleContent>
               <HeaderThree title>{p.title}</HeaderThree>
               <Hr />
@@ -36,17 +41,13 @@ const Projects = () => (
             <CardInfo className="card-info">{p.description}</CardInfo>
             <div>
               <br></br>
-              <TitleContent>Stack</TitleContent>
+              <TitleContent>Tech Stack</TitleContent>
               <TagList>
                 {p.tags.map((t, i) => {
-                  return <Tag key={i}>{t}</Tag>;
+                  return <Tag key={i} index={i}>{t}</Tag>;
                 })}
               </TagList>
             </div>
-            <UtilityList>
-              <ExternalLinks href={p.visit} target="_blank" >Visit</ExternalLinks>
-              <ExternalLinks href={p.source} target="_blank">Source</ExternalLinks>
-            </UtilityList>
           </BlogCard>
         );
       })}

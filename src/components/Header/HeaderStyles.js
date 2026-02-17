@@ -8,7 +8,8 @@ export const Container = styled.div`
   grid-column-gap: 2rem;
   padding: 1rem;
   padding-top: 2rem;
-  background-color: #0F1624;
+  background-color: ${props => props.theme.colors.background1};
+  transition: background-color 0.3s ease;
   // position: sticky; make the header not sticky anymmore
   top: 0;
   z-index: 100;
@@ -32,6 +33,12 @@ export const Div1 = styled.div`
 `;
 export const Span = styled.span`
   font-size: 2rem;
+  color: ${props => props.theme.colors.text};
+  background: ${props => props.theme.colors.gradient1};
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
 `;
 export const Div2 = styled.div`
   grid-area: 1 / 2 / 2 / 4;
@@ -56,12 +63,16 @@ export const Div3 = styled.div`
 export const NavLink = styled.a`
   font-size: 2rem;
   line-height: 32px;
-  color: rgba(255, 255, 255, 0.75);
+  color: ${props => props.theme.colors.textSecondary};
   transition: 0.4s ease;
   &:hover {
-    color: #fff;
+    color: ${props => props.theme.colors.text};
     opacity: 1;
     cursor: pointer;
+    background: ${props => props.theme.colors.gradient1};
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
   @media ${(props) => props.theme.breakpoints.sm} {
     padding: 0.5rem;
@@ -118,12 +129,40 @@ export const NavProductsIcon = styled(IoIosArrowDropdown)`
 
 export const SocialIcons = styled.a`
   transition: 0.3s ease;
-  color: white;
+  color: ${props => props.theme.colors.text};
   border-radius: 50px;
   padding: 8px;
   &:hover {
-    background-color: #212d45;
+    background: ${props => props.theme.colors.gradient1};
     transform: scale(1.2);
     cursor: pointer;
+  }
+`;
+
+// Theme Toggle
+export const ThemeToggle = styled.button`
+  background: ${props => props.theme.colors.background2};
+  border: 2px solid transparent;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: ${props => props.theme.colors.text};
+  margin-right: 1rem;
+  
+  &:hover {
+    background: ${props => props.theme.colors.gradient1};
+    transform: rotate(180deg) scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  @media ${(props) => props.theme.breakpoints.sm} {
+    width: 40px;
+    height: 40px;
+    margin-right: 0.5rem;
   }
 `;

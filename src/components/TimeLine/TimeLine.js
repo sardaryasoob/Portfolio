@@ -69,12 +69,12 @@ const Timeline = () => {
       <br />
       <SectionTitle>About Me</SectionTitle>
       <SectionText>
-        As a Software Engineer, I've contributed to multi-team projects, driving innovative solutions and
-        ensuring smooth delivery. My technical expertise, especially in Angular and full-stack development,
-        allows me to tackle complex challenges with clean, efficient code. From building user-friendly web
-        applications to optimizing functionality, I focus on creating impactful solutions that enhance both
-        performance and user experience. Passionate about coding, I'm always ready to dive into new projects
-        and deliver exceptional results!
+        Highly skilled Senior Software Engineer with over 4+ years of professional experience
+        specializing in modern web application development. Expert in Angular, React, Node.js, and full-stack
+        development using MEAN and MERN stacks. Proven track record of delivering scalable,
+        high-performance applications with strong expertise in frontend frameworks including Angular
+        Material, Kendo UI, PrimeNG, RxJS, and NgRx Store. Passionate about building robust
+        solutions and staying current with emerging technologies.
       </SectionText>
       <CarouselContainer ref={carouselRef} onScroll={handleScroll}>
         <>

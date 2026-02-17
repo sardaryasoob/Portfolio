@@ -1,5 +1,6 @@
 import React from "react";
-import { DiFirebase, DiReact, DiZend } from "react-icons/di";
+import { DiFirebase, DiReact, DiNodejsSmall, DiMongodb } from "react-icons/di";
+import { SiAngular, SiExpress, SiNgrx } from "react-icons/si";
 import {
   Section,
   SectionDivider,
@@ -13,45 +14,54 @@ import {
   ListParagraph,
   ListTitle,
 } from "./TechnologiesStyles";
+import { skills } from "../../constants/constants";
 
 const Technologies = () => (
   <Section id="tech">
     <SectionDivider />
     <br />
-    <SectionTitle>Technologies</SectionTitle>
+    <SectionTitle>Technical Skills</SectionTitle>
     <SectionText>
-      I have worked with a range of Technologies in web development as well as
-      mobile and desktop applications
+      I have worked with a comprehensive range of technologies in web development,
+      specializing in modern frontend frameworks, backend technologies, and full-stack solutions.
     </SectionText>
     <List>
-      <ListItem>
+      <ListItem index={0}>
         <DiReact size="3rem" />
         <ListContainer>
-          <ListTitle>Front-End</ListTitle>{" "}
+          <ListTitle>Frontend Frameworks</ListTitle>
           <ListParagraph>
-            Experience with <br />
-            Angular, Next.js/React.js
+            {skills.frontend.join(", ")}
           </ListParagraph>
         </ListContainer>
       </ListItem>
 
-      <ListItem>
+      <ListItem index={1}>
         <DiFirebase size="3rem" />
         <ListContainer>
-          <ListTitle>Back-End</ListTitle>{" "}
+          <ListTitle>Backend Technologies</ListTitle>
           <ListParagraph>
-            Experience with <br />
-            Node.js,MongoDB and SQL
+            {skills.backend.join(", ")}
           </ListParagraph>
         </ListContainer>
       </ListItem>
-      <ListItem>
-        <DiZend size="3rem" />
+      
+      <ListItem index={2}>
+        <DiNodejsSmall size="3rem" />
         <ListContainer>
-          <ListTitle>UI/UX Designing</ListTitle>{" "}
+          <ListTitle>Full Stack</ListTitle>
           <ListParagraph>
-            Experience with <br />
-            tools like Figma
+            {skills.fullstack.join(", ")}
+          </ListParagraph>
+        </ListContainer>
+      </ListItem>
+      
+      <ListItem index={3}>
+        <DiMongodb size="3rem" />
+        <ListContainer>
+          <ListTitle>Other Skills</ListTitle>
+          <ListParagraph>
+            {skills.other.join(", ")}
           </ListParagraph>
         </ListContainer>
       </ListItem>

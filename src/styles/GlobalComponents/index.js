@@ -1,4 +1,13 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 export const Section = styled.section`
   display: ${(props) => props.grid ? "grid" : "flex" };
@@ -25,16 +34,40 @@ export const Section = styled.section`
 `
 
 export const SectionTitle = styled.h2`
-  font-weight: 800;
+  font-weight: 900;
   font-size: ${(props) => props.main ? '65px' : '56px'};
   line-height: ${(props) => props.main ? '72px' : '56px'};
   width: max-content;
   max-width: 100%;
-  background: linear-gradient(121.57deg, #FFFFFF 18.77%, rgba(255, 255, 255, 0.66) 60.15%);
+  background: ${props => props.theme.colors.gradient1};
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 16px;
   padding: ${(props) => props.main ? '58px 0 16px' : '0'};
+  animation: ${fadeIn} 0.8s ease-out;
+  position: relative;
+  letter-spacing: -1px;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: ${props => props.theme.colors.gradient1};
+    border-radius: 2px;
+    animation: ${fadeIn} 1s ease-out 0.3s both;
+  }
+  
+  @media ${props => props.theme.breakpoints.sm} {
+    &::after {
+      width: 40px;
+      height: 3px;
+    }
+  }
 
   @media ${props => props.theme.breakpoints.md}{
     font-size: ${(props) => props.main ? '56px' : '48px'};
@@ -60,7 +93,8 @@ export const SectionText = styled.p`
   line-height: 40px;
   font-weight: 300;
   padding-bottom: 3.6rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: ${props => props.theme.colors.textSecondary};
+  animation: ${fadeIn} 1s ease-out 0.2s both;
 
   @media ${(props) => props.theme.breakpoints.md} {
     max-width: 670px;
@@ -83,8 +117,9 @@ export const SectionDivider = styled.div`
   border-radius: 10px;
   background-color: #fff;
   background: ${(props) => props.colorAlt ? 
-    'linear-gradient(270deg, #F46737 0%, #945DD6 100%)' :
-    'linear-gradient(270deg, #13ADC7 0%, #945DD6 100%)'};
+    props.theme.colors.gradient2 :
+    props.theme.colors.gradient1};
+  animation: ${fadeIn} 0.8s ease-out;
 
     margin: ${(props) => props.divider ? "4rem 0" : "" };
 
@@ -177,12 +212,17 @@ export const ButtonBack = styled.div`
   justify-content: center;
   margin: ${({ alt, form }) => (alt || form) ? '0' : '0 0 80px'};
   color: #fff;
-  background: ${({ alt }) => alt ? 'linear-gradient(270deg, #ff622e 0%, #B133FF 100%)' : 'linear-gradient(270deg, #00DBD8 0%, #B133FF 100%)'};
+  background: ${({ alt, theme }) => alt ? theme.colors.gradient2 : theme.colors.gradient1};
   cursor: pointer;
-  transition: 0.5s ease;
+  transition: all 0.5s ease;
   position: relative;
   overflow: hidden;
   opacity: ${({ disabled }) => disabled ? '.5' : '1'};
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
 
   @media ${(props) => props.theme.breakpoints.md} {
     width: ${({ alt }) => alt ? '150px' : '184px'};
@@ -209,7 +249,7 @@ export const ButtonFront = styled.button`
   left: 0;
   width: 100%;
   height: 100%;
-  background: ${({ alt }) => alt ? 'linear-gradient(270deg, #F46737 0%, #945DD6 100%)' : 'linear-gradient(270deg, #13ADC7 0%, #945DD6 100%)'};
+  background: ${({ alt, theme }) => alt ? theme.colors.gradient2 : theme.colors.gradient1};
   opacity: ${({ disabled }) => disabled ? '.5' : '1'};
   transition: .4s ease;
   font-size: ${({ alt }) => alt ? '20px' : '24px'};
