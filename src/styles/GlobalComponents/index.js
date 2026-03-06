@@ -9,10 +9,15 @@ const fadeIn = keyframes`
   }
 `;
 
+const fadeInUp = keyframes`
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+`;
+
 export const Section = styled.section`
-  display: ${(props) => props.grid ? "grid" : "flex" };
-  flex-direction: ${(props) => props.row ? "row" : "column" };
-  padding: ${(props) => props.nopadding ? "0" : "32px 48px 0" } ;
+  display: ${(props) => props.grid ? "grid" : "flex"};
+  flex-direction: ${(props) => props.row ? "row" : "column"};
+  padding: ${(props) => props.nopadding ? "0" : "40px 48px 0"};
   margin: 0 auto;
   max-width: 1040px;
   box-sizing: content-box;
@@ -21,13 +26,12 @@ export const Section = styled.section`
   grid-template-columns: 1fr 1fr;
 
   @media ${(props) => props.theme.breakpoints.md} {
-    padding: 24px 48px 0;
+    padding: 28px 32px 0;
     flex-direction: column;
   }
 
   @media ${(props) => props.theme.breakpoints.sm} {
-    padding: ${(props) => props.nopadding ? "0" : "16px 16px 0" } ;
-
+    padding: ${(props) => props.nopadding ? "0" : "20px 16px 0"};
     width: calc(100vw - 32px);
     flex-direction: column;
   }
@@ -111,17 +115,15 @@ export const SectionText = styled.p`
 `
 
 export const SectionDivider = styled.div`
-
-  width: 64px;
-  height: 6px;
-  border-radius: 10px;
-  background-color: #fff;
-  background: ${(props) => props.colorAlt ? 
-    props.theme.colors.gradient2 :
-    props.theme.colors.gradient1};
+  width: 56px;
+  height: 5px;
+  border-radius: 999px;
+  background: ${(props) => props.colorAlt
+    ? props.theme.colors.gradient2
+    : props.theme.colors.gradient1};
   animation: ${fadeIn} 0.8s ease-out;
-
-    margin: ${(props) => props.divider ? "4rem 0" : "" };
+  margin: ${(props) => props.divider ? "4rem 0" : "0"};
+  box-shadow: 0 0 20px ${props => props.theme.colors.glow};
 
   @media ${(props) => props.theme.breakpoints.md} {
     width: 48px;
@@ -129,16 +131,16 @@ export const SectionDivider = styled.div`
   }
 
   @media ${(props) => props.theme.breakpoints.sm} {
-    width: 32px;
-    height: 2px;
+    width: 40px;
+    height: 3px;
   }
 `
 export const SectionSubText = styled.p`
   max-width: 800px;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 18px;
   line-height: 32px;
-  color: rgba(255, 255, 255, 0.75);
+  color: ${props => props.theme.colors.textSecondary};
 
 @media ${(props) => props.theme.breakpoints.md} {
     max-width: 672px;
@@ -202,9 +204,9 @@ export const SecondaryBtn = styled.button`
 `
 
 export const ButtonBack = styled.div`
-  width: ${({ alt }) => alt ? '150px' : '262px'};
-  height: ${({ alt }) => alt ? '52px' : '64px'};
-  border-radius: 50px;
+  width: ${({ alt }) => alt ? '150px' : '220px'};
+  height: ${({ alt }) => alt ? '52px' : '56px'};
+  border-radius: 999px;
   font-size: ${({ alt }) => alt ? '20px' : '24px'};
   font-weight: 600;
   display: flex;
@@ -220,8 +222,8 @@ export const ButtonBack = styled.div`
   opacity: ${({ disabled }) => disabled ? '.5' : '1'};
   
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px ${props => props.theme.colors.glow};
   }
 
   @media ${(props) => props.theme.breakpoints.md} {
@@ -241,7 +243,7 @@ export const ButtonBack = styled.div`
 
 export const ButtonFront = styled.button`
   border: none;
-  border-radius: 50px;
+  border-radius: 999px;
   color: #fff;
   display: flex;
   position: absolute;
