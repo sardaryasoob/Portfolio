@@ -1,9 +1,7 @@
 // pages/services.js
 import React from "react";
-import { Container, ServiceCard, ServiceDescription, ServiceGrid, ServiceTitle, Title } from "../components/ServicesStyle";
+import { ServiceCard, ServiceDescription, ServiceGrid, ServiceTitle, Title } from "../components/ServicesStyle";
 import ServiceImage from "../components/ServiceImage";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
 import { DescriptionContent, DescriptionTitle, ServiceDescriptionSection } from "../components/ServiceDescriptionSection";
 import ScrollToTopButton from "../components/ScrollToTopButton/ScrollToTopButton";
 import { Layout } from "../layout/Layout";

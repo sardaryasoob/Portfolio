@@ -1,93 +1,84 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components';
 
 const fadeIn = keyframes`
-  from { opacity: 0; transform: translateY(-8px); }
+  from { opacity: 0; transform: translateY(-12px); }
   to { opacity: 1; transform: translateY(0); }
-`;
-
-const underlineSlide = keyframes`
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
 `;
 
 export const Container = styled.header`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 2rem;
-  padding: 1.2rem 2rem;
-  padding-top: 1.8rem;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 1.6rem 2rem;
   background: ${props => props.theme.colors.background1};
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid ${props => props.theme.colors.background2};
+  border-bottom: 2px solid ${props => props.theme.colors.background2};
   position: sticky;
   top: 0;
   z-index: 100;
-  animation: ${fadeIn} 0.5s ease-out;
+  animation: ${fadeIn} 0.4s ease-out;
   transition: background 0.3s ease, border-color 0.3s ease;
+  gap: 1rem;
 
   @media ${(props) => props.theme.breakpoints.sm} {
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, 56px);
-    grid-column-gap: 0.5rem;
-    grid-row-gap: 0.5rem;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
     padding: 1rem;
   }
 `;
 
 export const Div1 = styled.div`
-  grid-area: 1 / 1 / 2 / 2;
   display: flex;
   align-items: center;
   @media ${(props) => props.theme.breakpoints.sm} {
-    grid-area: 1 / 1 / 2 / 3;
+    grid-column: 1;
   }
 `;
 
 export const Span = styled.span`
-  font-size: 1.9rem;
-  font-weight: 700;
+  font-size: 1.6rem;
+  font-weight: 800;
   color: ${props => props.theme.colors.text};
-  background: ${props => props.theme.colors.gradient1};
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: -0.02em;
-  transition: opacity 0.3s ease;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
   &:hover {
-    opacity: 0.9;
+    color: ${props => props.theme.colors.accent1};
   }
 `;
 
 export const Div2 = styled.div`
-  grid-area: 1 / 2 / 2 / 4;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  gap: 2.4rem;
   @media ${(props) => props.theme.breakpoints.sm} {
-    grid-area: 2 / 2 / 3 / 5;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    gap: 1.2rem;
+    justify-content: flex-start;
   }
 `;
 
 export const Div3 = styled.div`
-  grid-area: 1 / 5 / 2 / 6;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
   @media ${(props) => props.theme.breakpoints.sm} {
-    grid-area: 1 / 4 / 2 / 6;
+    grid-column: 2;
+    grid-row: 1;
   }
 `;
 
 export const NavLink = styled.a`
-  font-size: 1.65rem;
-  font-weight: 500;
+  font-size: 1.4rem;
+  font-weight: 600;
   color: ${props => props.theme.colors.textSecondary};
-  transition: color 0.25s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.5rem 0;
   position: relative;
-  padding: 0.4rem 0;
+  transition: color 0.2s ease;
 
   &::after {
     content: '';
@@ -96,11 +87,10 @@ export const NavLink = styled.a`
     bottom: 0;
     width: 100%;
     height: 2px;
-    background: ${props => props.theme.colors.gradient1};
+    background: ${props => props.theme.colors.accent1};
     transform: scaleX(0);
     transform-origin: right;
-    transition: transform 0.3s ease;
-    border-radius: 2px;
+    transition: transform 0.25s ease;
   }
 
   &:hover {
@@ -112,8 +102,7 @@ export const NavLink = styled.a`
   }
 
   @media ${(props) => props.theme.breakpoints.sm} {
-    font-size: 1.5rem;
-    padding: 0.35rem;
+    font-size: 1.2rem;
   }
 `;
 
@@ -121,43 +110,37 @@ export const SocialIcons = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  border: 2px solid ${props => props.theme.colors.background2};
   color: ${props => props.theme.colors.text};
-  background: ${props => props.theme.colors.background2};
-  border: 1px solid transparent;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 
   &:hover {
-    background: ${props => props.theme.colors.gradient1};
-    transform: scale(1.08);
-    box-shadow: 0 4px 16px ${props => props.theme.colors.glow};
+    border-color: ${props => props.theme.colors.accent1};
+    color: ${props => props.theme.colors.accent1};
   }
 `;
 
 export const ThemeToggle = styled.button`
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid ${props => props.theme.colors.background2};
-  background: ${props => props.theme.colors.background2};
+  width: 42px;
+  height: 42px;
+  border: 2px solid ${props => props.theme.colors.background2};
+  background: transparent;
   color: ${props => props.theme.colors.text};
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 
   &:hover {
-    background: ${props => props.theme.colors.gradient1};
-    border-color: transparent;
-    transform: rotate(15deg) scale(1.05);
-    box-shadow: 0 4px 16px ${props => props.theme.colors.glow};
+    border-color: ${props => props.theme.colors.accent1};
+    color: ${props => props.theme.colors.accent1};
   }
 
   @media ${(props) => props.theme.breakpoints.sm} {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
   }
 `;

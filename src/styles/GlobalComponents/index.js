@@ -1,23 +1,19 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes } from 'styled-components';
 
 const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 `;
 
 const fadeInUp = keyframes`
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
 `;
 
 export const Section = styled.section`
   display: ${(props) => props.grid ? "grid" : "flex"};
   flex-direction: ${(props) => props.row ? "row" : "column"};
-  padding: ${(props) => props.nopadding ? "0" : "40px 48px 0"};
+  padding: ${(props) => props.nopadding ? "0" : "48px 0 0"};
   margin: 0 auto;
   max-width: 1040px;
   box-sizing: content-box;
@@ -26,298 +22,213 @@ export const Section = styled.section`
   grid-template-columns: 1fr 1fr;
 
   @media ${(props) => props.theme.breakpoints.md} {
-    padding: 28px 32px 0;
+    padding: ${(props) => props.nopadding ? "0" : "32px 0 0"};
     flex-direction: column;
   }
 
   @media ${(props) => props.theme.breakpoints.sm} {
-    padding: ${(props) => props.nopadding ? "0" : "20px 16px 0"};
-    width: calc(100vw - 32px);
+    padding: ${(props) => props.nopadding ? "0" : "24px 0 0"};
+    width: 100%;
     flex-direction: column;
   }
-`
+`;
 
 export const SectionTitle = styled.h2`
-  font-weight: 900;
-  font-size: ${(props) => props.main ? '65px' : '56px'};
-  line-height: ${(props) => props.main ? '72px' : '56px'};
+  font-weight: 800;
+  font-size: ${(props) => props.main ? '3.2rem' : '2.8rem'};
+  line-height: 1.15;
   width: max-content;
   max-width: 100%;
-  background: ${props => props.theme.colors.gradient1};
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 16px;
-  padding: ${(props) => props.main ? '58px 0 16px' : '0'};
-  animation: ${fadeIn} 0.8s ease-out;
+  color: ${props => props.theme.colors.text};
+  margin-bottom: 1.2rem;
+  padding: ${(props) => props.main ? '3rem 0 1rem' : '0'};
+  animation: ${fadeIn} 0.6s ease-out;
   position: relative;
-  letter-spacing: -1px;
-  
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+
   &::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -8px;
     left: 0;
-    width: 60px;
-    height: 4px;
-    background: ${props => props.theme.colors.gradient1};
-    border-radius: 2px;
-    animation: ${fadeIn} 1s ease-out 0.3s both;
+    width: 48px;
+    height: 3px;
+    background: ${props => props.theme.colors.accent1};
+    animation: ${fadeIn} 0.8s ease-out 0.2s both;
   }
-  
+
+  @media ${props => props.theme.breakpoints.md} {
+    font-size: ${(props) => props.main ? '2.6rem' : '2.2rem'};
+    padding: ${(props) => props.main ? '2.5rem 0 0.8rem' : '0'};
+  }
+
   @media ${props => props.theme.breakpoints.sm} {
-    &::after {
-      width: 40px;
-      height: 3px;
-    }
+    font-size: ${(props) => props.main ? '2rem' : '1.8rem'};
+    padding: ${(props) => props.main ? '1.5rem 0 0.5rem' : '0'};
+    &::after { width: 32px; height: 2px; }
   }
-
-  @media ${props => props.theme.breakpoints.md}{
-    font-size: ${(props) => props.main ? '56px' : '48px'};
-    line-height: ${(props) => props.main ? '56px' : '48px'};
-    margin-bottom: 12px;
-    padding: ${(props) => props.main ? '40px 0 12px' : '0'};
-  }
-
-  @media ${props => props.theme.breakpoints.sm}{
-    font-size: 32px;
-    line-height: 40px;
-    font-size: ${(props) => props.main ? '28px' : '32px'};
-    line-height: ${(props) => props.main ? '32px' : '40px'};
-    margin-bottom: 8px;
-    padding: ${(props) => props.main ? '16px 0 8px' : '0'};
-    max-width: 100%;
-  }
-`
+`;
 
 export const SectionText = styled.p`
-  max-width: 800px;
-  font-size: 24px;
-  line-height: 40px;
-  font-weight: 300;
-  padding-bottom: 3.6rem;
+  max-width: 720px;
+  font-size: 1.5rem;
+  line-height: 1.7;
+  font-weight: 400;
+  padding-bottom: 2.5rem;
   color: ${props => props.theme.colors.textSecondary};
-  animation: ${fadeIn} 1s ease-out 0.2s both;
+  animation: ${fadeIn} 0.8s ease-out 0.15s both;
 
   @media ${(props) => props.theme.breakpoints.md} {
-    max-width: 670px;
-    font-size: 20px;
-    line-height: 32px;
-    padding-bottom: 24px;
+    font-size: 1.4rem;
+    line-height: 1.65;
+    padding-bottom: 2rem;
   }
 
   @media ${(props) => props.theme.breakpoints.sm} {
-    font-size: 16px;
-    line-height: 24px;
-    padding-bottom: 16px;
+    font-size: 1.35rem;
+    line-height: 1.6;
+    padding-bottom: 1.5rem;
   }
-`
+`;
 
 export const SectionDivider = styled.div`
-  width: 56px;
-  height: 5px;
-  border-radius: 999px;
+  width: 48px;
+  height: 3px;
   background: ${(props) => props.colorAlt
-    ? props.theme.colors.gradient2
-    : props.theme.colors.gradient1};
-  animation: ${fadeIn} 0.8s ease-out;
-  margin: ${(props) => props.divider ? "4rem 0" : "0"};
-  box-shadow: 0 0 20px ${props => props.theme.colors.glow};
-
-  @media ${(props) => props.theme.breakpoints.md} {
-    width: 48px;
-    height: 4px;
-  }
+    ? props.theme.colors.accent2
+    : props.theme.colors.accent1};
+  animation: ${fadeIn} 0.6s ease-out;
+  margin: ${(props) => props.divider ? "3rem 0" : "0"};
 
   @media ${(props) => props.theme.breakpoints.sm} {
-    width: 40px;
-    height: 3px;
+    width: 36px;
+    height: 2px;
   }
-`
+`;
+
 export const SectionSubText = styled.p`
-  max-width: 800px;
+  max-width: 720px;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 32px;
+  font-size: 1.5rem;
+  line-height: 1.65;
   color: ${props => props.theme.colors.textSecondary};
 
-@media ${(props) => props.theme.breakpoints.md} {
-    max-width: 672px;
-    font-size: 16px;
-    line-height: 25px;
+  @media ${(props) => props.theme.breakpoints.md} {
+    font-size: 1.4rem;
   }
 
   @media ${(props) => props.theme.breakpoints.sm} {
-    font-size: 14px;
-    line-height: 22px;
+    font-size: 1.3rem;
   }
-`
+`;
+
 export const SecondaryBtn = styled.button`
-  color: #FFF;
+  color: ${props => props.theme.colors.text};
   background: none;
-  border: 1px solid rgba(255, 255, 255, 0.33);
-  box-sizing: border-box;
-  border-radius: 999px;
-  padding: 16px 24px;
+  border: 2px solid ${props => props.theme.colors.background2};
+  padding: 1rem 1.5rem;
   font-weight: 600;
-  font-size: 18px;
-  line-height: 16px;
+  font-size: 1.5rem;
   width: fit-content;
-  margin-top: 32px;
-  margin-bottom: 80px;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
   cursor: pointer;
-  transition: 0.4s ease;
-  &:focus {
-    outline: none;
-  }
+  transition: all 0.2s ease;
 
   &:hover {
-    color: #0f1624;
-    background: #fff;
-    border: 1px solid #fff;
+    border-color: ${props => props.theme.colors.accent1};
+    color: ${props => props.theme.colors.accent1};
   }
 
-  &:active {
-    background: #e0e4eb;
-    border: 1px solid #304169;
-    box-shadow: inset 0px 2px 1px rgba(46, 49, 55, 0.15), inset 0px 0px 4px rgba(20, 20, 55, 0.3);
-  }
-
-  @media ${(props) => props.theme.breakpoints.md}{
-    margin-top: 24px; 
-    margin-bottom: 64px;
-    padding: 16px 24px;
-    width: fit-content;
-    font-size: 20px;
-    line-height: 20px;
-  }
+  &:focus { outline: none; }
 
   @media ${(props) => props.theme.breakpoints.sm} {
-    margin-top: 16px;
-    margin-bottom: 40px;
-    padding: 8px 16px;
-    width: 100%;
-    font-size: 14px;
-    line-height: 16px;
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.35rem;
   }
-`
+`;
 
 export const ButtonBack = styled.div`
-  width: ${({ alt }) => alt ? '150px' : '220px'};
-  height: ${({ alt }) => alt ? '52px' : '56px'};
-  border-radius: 999px;
-  font-size: ${({ alt }) => alt ? '20px' : '24px'};
-  font-weight: 600;
+  width: ${({ alt }) => alt ? '140px' : '180px'};
+  height: ${({ alt }) => alt ? '48px' : '52px'};
+  font-size: ${({ alt }) => alt ? '1.5rem' : '1.6rem'};
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: ${({ alt, form }) => (alt || form) ? '0' : '0 0 80px'};
-  color: #fff;
-  background: ${({ alt, theme }) => alt ? theme.colors.gradient2 : theme.colors.gradient1};
+  margin: ${({ alt, form }) => (alt || form) ? '0' : '0 0 4rem'};
+  color: ${props => props.theme.colors.background1};
+  background: ${props => props.theme.colors.accent1};
+  border: 2px solid ${props => props.theme.colors.accent1};
   cursor: pointer;
-  transition: all 0.5s ease;
+  transition: all 0.2s ease;
   position: relative;
-  overflow: hidden;
   opacity: ${({ disabled }) => disabled ? '.5' : '1'};
-  
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px ${props => props.theme.colors.glow};
-  }
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 
-  @media ${(props) => props.theme.breakpoints.md} {
-    width: ${({ alt }) => alt ? '150px' : '184px'};
-    height: ${({ alt }) => alt ? '52px' : '48px'};
-    font-size: ${({ alt }) => alt ? '20px' : '16px'};
-    margin-bottom: ${({ alt }) => alt ? '0' : '64px'};
+  &:hover {
+    background: transparent;
+    color: ${props => props.theme.colors.accent1};
   }
 
   @media ${(props) => props.theme.breakpoints.sm} {
     width: 100%;
-    height: 32px;
-    font-size: 14px;
-    margin-bottom: ${({ alt }) => alt ? '0' : '32px'};
+    max-width: ${({ alt }) => alt ? '140px' : 'none'};
+    height: 48px;
+    font-size: 1.4rem;
+    margin-bottom: ${({ alt }) => alt ? '0' : '2.5rem'};
   }
-`
+`;
 
 export const ButtonFront = styled.button`
   border: none;
-  border-radius: 999px;
-  color: #fff;
+  color: ${props => props.theme.colors.background1};
   display: flex;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: ${({ alt, theme }) => alt ? theme.colors.gradient2 : theme.colors.gradient1};
+  background: transparent;
   opacity: ${({ disabled }) => disabled ? '.5' : '1'};
-  transition: .4s ease;
-  font-size: ${({ alt }) => alt ? '20px' : '24px'};
-  font-weight: 600;
+  transition: opacity 0.2s ease;
+  font-size: inherit;
+  font-weight: inherit;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: ${({ disabled }) => disabled ? 'inset 0px 2px 1px rgba(46, 49, 55, 0.15), inset 0px 0px 4px rgba(20, 20, 55, 0.3)' : 'none'};
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 
   &:hover {
     opacity: 0;
   }
-  &:focus {
-    outline: none;
-  }
-  &:active {
-    opacity: 1;
-    box-shadow: inset 0px 2px 1px rgba(46, 49, 55, 0.15), inset 0px 0px 4px rgba(20, 20, 55, 0.3);
-  }
+  &:focus { outline: none; }
 
-  &:disabled{
-    background: linear-gradient(270deg, #00DBD8 0%, #B133FF 100%);
+  &:disabled {
     opacity: 0.5;
-    box-shadow: inset 0px 2px 1px rgba(46, 49, 55, 0.15), inset 0px 0px 4px rgba(20, 20, 55, 0.3);
-  }
-
-  @media ${(props) => props.theme.breakpoints.md} {
-    font-size: ${({ alt }) => alt ? '20px' : '16px'};
+    cursor: not-allowed;
   }
 
   @media ${(props) => props.theme.breakpoints.sm} {
-    font-size: 14px;
+    font-size: 1.4rem;
   }
-`
+`;
 
 export const LinkContainer = styled.div`
-  margin-left: ${({ large }) => large ? '24px' : '16px'};
-  transition: 0.3s ease;
-  justify-content: center;
-  border-radius: 50px;
-  padding: 8px;
+  margin-left: ${({ large }) => large ? '1.5rem' : '1rem'};
+  transition: 0.2s ease;
 
   &:hover {
-    background-color: #212d45;
-    transform: scale(1.2);
-    cursor: pointer;
+    opacity: 0.8;
   }
-
-  @media ${(props) => props.theme.breakpoints.md} {
-    margin-left: ${({ large }) => large ? '16px' : '8px'};
-
-  }
-  @media ${(props) => props.theme.breakpoints.sm} {
-    margin-left: ${({ large }) => large ? '0' : '8px'};
-  }
-`
+`;
 
 export const LinkIconImg = styled.div`
-  display: flex;  
-  height: ${({ large }) => large ? '32px' : '24px'};
-
-  @media ${(props) => props.theme.breakpoints.md} {
-    height: ${({ nav }) => nav ? '16px' : '24px'};
-  }
-
-  @media ${(props) => props.theme.breakpoints.sm} {
-    height: ${({ large }) => large ? '32px' : '16px'};
-  }
-`
+  display: flex;
+  height: ${({ large }) => large ? '28px' : '22px'};
+`;

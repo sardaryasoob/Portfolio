@@ -1,29 +1,23 @@
-import Acomplishments from "../components/Acomplishments/Acomplishments";
-import BgAnimation from "../components/BackgrooundAnimation/BackgroundAnimation";
-import Hero from "../components/Hero/Hero";
-import Projects from "../components/Projects/Projects";
-import ScrollToTopButton from "../components/ScrollToTopButton/ScrollToTopButton";
-import Technologies from "../components/Technologies/Technologies";
-import Timeline from "../components/TimeLine/TimeLine";
-import { Layout } from "../layout/Layout";
-import { Section } from "../styles/GlobalComponents";
+import React from 'react';
+import { Layout } from '../layout/Layout';
+import HeroFull from '../components/HeroFull/HeroFull';
+import IntroBlock from '../components/IntroBlock/IntroBlock';
+import WorkBento from '../components/WorkBento/WorkBento';
+import StackPills from '../components/StackPills/StackPills';
+import JourneyTimeline from '../components/JourneyTimeline/JourneyTimeline';
+import ConnectBlock from '../components/ConnectBlock/ConnectBlock';
+import ScrollToTopButton from '../components/ScrollToTopButton/ScrollToTopButton';
 
-const Home = () => {
-  return (
-    <Layout>
-
-      <ScrollToTopButton />
-      <Section grid>
-        <Hero />
-        <BgAnimation />
-      </Section>
-      <Projects/>
-      <Timeline />
-      <Technologies />
-      <Acomplishments />
-    </Layout>
-
-  );
-};
+const Home = () => (
+  <Layout>
+    <ScrollToTopButton />
+    <HeroFull />
+    <IntroBlock />
+    <WorkBento />
+    <StackPills />
+    <JourneyTimeline />
+    <ConnectBlock />
+  </Layout>
+);
 
 export default Home;
